@@ -48,4 +48,14 @@ public class UserController {
         return new ResponseEntity<String>("success", HttpStatus.OK);
     }
 
+    @GetMapping("check-id/{userId}")
+    public ResponseEntity<Boolean> checkId(@PathVariable("userId") String userId) {
+        return new ResponseEntity<Boolean>(userService.checkIdDuplicated(userId), HttpStatus.OK);
+    }
+
+    @GetMapping("check-nickname/{nickname}")
+    public ResponseEntity<Boolean> checkNickname(@PathVariable("nickname") String nickname) {
+        return new ResponseEntity<Boolean>(userService.checkNicknameDuplicated(nickname), HttpStatus.OK);
+    }
+
 }

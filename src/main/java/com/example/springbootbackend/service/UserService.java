@@ -14,4 +14,7 @@ public interface UserService {
     public List<User> getAllUsers();
     public User updateUser(User user, String userId);
     public void deleteUser(String userId);
+
+    Boolean checkIdDuplicated(String userId);
+    Boolean checkNicknameDuplicated(String nickname);
 }

@@ -8,4 +8,7 @@ import java.util.Optional;
 public interface UserRepository extends JpaRepository<User, Long> {
     // All CRUD DB methods
     Optional<User> findByUserId(String userId);
+
+    Boolean existsByUserId(String userId);
+    Boolean existsByNickname(String nickname);
 }

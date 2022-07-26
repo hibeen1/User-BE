@@ -30,7 +30,7 @@ public class UserServiceImpl implements UserService {
 //        if (user.isPresent()) {
 //            return user.get();
 //        } else {
-//            throw new ResourceNotFoundException("User", "id", id);
+//            throw new ResourceNotFoundException("User", "id", userId);
 //        }
         return userRepository.findByUserId(userId).
                 orElseThrow(() -> new ResourceNotFoundException("User", "userId", userId));
@@ -60,5 +60,15 @@ public class UserServiceImpl implements UserService {
         User user = userRepository.findByUserId(userId).orElseThrow(
                 () -> new ResourceNotFoundException("User", "userId", userId));
         userRepository.deleteById(user.getUser_seq());
+    }
+
+    @Override
+    public Boolean checkIdDuplicated(String userId) {
+        return userRepository.existsByUserId(userId);
+    }
+
+    @Override
+    public Boolean checkNicknameDuplicated(String nickname) {
+        return userRepository.existsByNickname(nickname);
     }
 }
