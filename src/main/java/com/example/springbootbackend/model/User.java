@@ -20,8 +20,8 @@ public class User {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long user_seq;
 
-    @Column(name = "id", unique = true, nullable = false)
-    private String id;
+    @Column(name = "user_id", unique = true, nullable = false)
+    private String userId;
 
     @Column(name = "name", nullable = false)
     private String name;
@@ -34,6 +34,4 @@ public class User {
 
     @Column(name = "password", nullable = false)
     private String password;
-
-
 }

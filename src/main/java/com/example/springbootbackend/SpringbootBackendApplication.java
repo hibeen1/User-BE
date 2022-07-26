@@ -19,20 +19,20 @@ public class SpringbootBackendApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		User user1 = new User();
-		user1.setId("kimssafy");
-		user1.setPassword("kimssafy");
-		user1.setName("kimssafy");
-		user1.setNickname("kimssafy");
-		user1.setEmail("kimssafy@ssafy.com");
-		userRepository.save(user1);
-
-		User user2 = new User();
-		user2.setId("hwangssafy");
-		user2.setPassword("hwangssafy");
-		user2.setName("hwangssafy");
-		user2.setNickname("hwangssafy");
-		user2.setEmail("hwangssafy@ssafy.com");
-		userRepository.save(user2);
+//		User user1 = new User();
+//		user1.setUserId("kimssafy");
+//		user1.setPassword("kimssafy");
+//		user1.setName("kimssafy");
+//		user1.setNickname("kimssafy");
+//		user1.setEmail("kimssafy@ssafy.com");
+//		userRepository.save(user1);
+//
+//		User user2 = new User();
+//		user2.setUserId("hwangssafy");
+//		user2.setPassword("hwangssafy");
+//		user2.setName("hwangssafy");
+//		user2.setNickname("hwangssafy");
+//		user2.setEmail("hwangssafy@ssafy.com");
+//		userRepository.save(user2);
 	}
 }

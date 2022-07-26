@@ -25,15 +25,15 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User getUserById(long id) {
-//        Optional<User> user = userRepository.findById(id);
+    public User getUserByUserId(String userId) {
+//        Optional<User> user = userRepository.findByUserId(userId);
 //        if (user.isPresent()) {
 //            return user.get();
 //        } else {
 //            throw new ResourceNotFoundException("User", "id", id);
 //        }
-        return userRepository.findById(id).
-                orElseThrow(() -> new ResourceNotFoundException("User", "id", id));
+        return userRepository.findByUserId(userId).
+                orElseThrow(() -> new ResourceNotFoundException("User", "userId", userId));
     }
 
     @Override
@@ -42,9 +42,9 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User updateUser(User user, long id) {
-        User updateUser = userRepository.findById(id).
-                orElseThrow(() -> new ResourceNotFoundException("User", "id", id));
+    public User updateUser(User user, String userId) {
+        User updateUser = userRepository.findByUserId(userId).
+                orElseThrow(() -> new ResourceNotFoundException("User", "userId", userId));
 
         updateUser.setName(user.getName());
         updateUser.setNickname(user.getNickname());
@@ -56,10 +56,9 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public int deleteUser(long id) {
-        userRepository.findById(id).orElseThrow(
-                () -> new ResourceNotFoundException("User", "id", id));
-        userRepository.deleteById(id);
-        return 1;
+    public void deleteUser(String userId) {
+        User user = userRepository.findByUserId(userId).orElseThrow(
+                () -> new ResourceNotFoundException("User", "userId", userId));
+        userRepository.deleteById(user.getUser_seq());
     }
 }
