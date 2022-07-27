@@ -4,6 +4,11 @@
 
 ### http://localhost:8080/users
 
+0. Mysql DB 서버 정보 <br>
+id : ssafy <br>
+password : ssafy <br>
+create database ssafy_web_db <br>
+
 1. 회원 가입
   POST /
   
